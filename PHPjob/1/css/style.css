@@ -1,0 +1,163 @@
+.container{
+    width: 400px;
+    height: 450px;
+    position: relative;
+}
+
+@media screen and (max-width:479px) {
+    .container{
+        width: 200px;
+        height: fit-content;
+        position: initial;
+    }
+}
+
+.box1{
+    width: 400px;
+    height: 100px;
+    background-color: #141f40;
+    position: relative;
+}
+
+@media screen and (max-width:479px) {
+    .box1{
+        width: 200px;
+        height: 200px;
+        background-color: #141f40;
+    }
+}
+
+.innerbox1{
+    width: 160px;
+    height: 60px;
+    background-color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+@media screen and (max-width:479px) {
+    .innerbox1{
+        width: 60px;
+        height: 160px;
+        background-color: #fff;
+        position: absolute;
+        top: 20px;
+        right: 70px;
+    }
+}
+
+.inner1{
+    width: 40px;
+    height: 40px;
+    background-color: #a9004b;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.inner1.second{
+    right: 60px;
+}
+
+@media screen and (max-width:479px) {
+    .inner1.second{
+        top: 60px;
+        right: 10px;
+    }
+}
+
+.inner1.third{
+    right: 110px;
+}
+
+@media screen and (max-width:479px) {
+    .inner1.third{
+        top: 110px;
+        right: 10px;
+    }
+}
+
+.box2{
+    width: 150px;
+    height: 250px;
+    background-color: #80bfa8;
+}
+
+@media screen and (max-width:479px) {
+    .box2{
+        width: 200px;
+        height: 100px;
+    }
+}
+
+.box3{
+    width: 250px;
+    height: 250px;
+    background-color: #8c2727;
+    position: absolute;
+    right: 0px;
+    top: 100px;
+}
+
+@media screen and (max-width:479px) {
+    .box3{
+        width: 200px;
+        height: 180px;
+        position: relative;
+        top: initial;
+    }
+}
+
+.inner3{
+    width: 140px;
+    height: 40px;
+    background-color: #ff863f;
+    border: #fff solid 5px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+@media screen and (max-width:479px) {
+    .inner3{
+        box-sizing: border-box;
+        width: 140px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        left: 30px;
+    }
+    
+}
+
+.inner3.second{
+    top: 100px;
+}
+
+@media screen and (max-width:479px) {
+    .inner3.second{
+        top: 70px;
+    }
+}
+
+.inner3.third{
+    top: 160px;
+}
+@media screen and (max-width:479px) {
+    .inner3.third{
+        top: 120px;
+    }
+}
+
+
+.box4{
+    width: 400px;
+    height: 100px;
+    background-color: #d98d30;
+}
+@media screen and (max-width:479px) {
+    .box4{
+        width: 200px;
+    }
+}
