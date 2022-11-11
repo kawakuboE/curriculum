@@ -1,6 +1,11 @@
 <?php 
-$num = 0;
-for($num=0;$num<100;$num++) { 
-    echo $num;
+header('Content-Type: text/html; charset=UTF-8');
+
+function challenge($base,$height,$long){
+ $answer = $base * $height * $long;
+ echo $answer;
 }
+
+challenge(5,10,8)
+
 ?>
