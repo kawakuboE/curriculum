@@ -1,15 +1,17 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
-$name = "taro";
-$pass = "pass";
-
-if ($name === "taro" && $pass === "pass") {
-    echo 'ログイン成功です';
-}elseif($name === "taro" && $pass != "pass"){
-    echo 'パスワードが間違っています。';
-}elseif($name != "taro" && $pass === "pass"){
-    echo '名前が間違っています。';
-}else{
-    echo '入力情報が間違っています';
+function devide($int1,$int2) {
+    try {
+        if($int2 == 0) {
+            throw new Exception('0で割ることはできません。');
+        }
+        return $int1 / $int2;
+    } catch(Exception $e) {
+        echo "例外処理が発生しました";
+        echo "<br>";
+        echo $e->getMessage();
+    }
 }
+
+echo devide(5, 0);
 ?>
