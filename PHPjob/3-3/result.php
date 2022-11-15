@@ -11,7 +11,7 @@ echo $result;
 ?>
 <br>
 <?php 
-if($result < 1){
+if($result == 0){
     echo "凶";
 }elseif($result >= 1 and $result <= 3){
     echo "小吉";
