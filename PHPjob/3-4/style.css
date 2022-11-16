@@ -1,0 +1,38 @@
+body{
+    background-color: #808080;
+    color: #fff;
+    font-family:"Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    text-align: center;
+}
+
+h1{
+    margin-top: 150px;
+    margin-bottom: 1px;
+}
+
+h2{
+    margin-top: 30px;
+}
+
+hr{
+    border-style: solid;
+    border-width: 2px;
+}
+
+.top_form{
+    padding-top: 50px;
+}
+
+.startbutton,
+.answerbutton{
+    border-radius: 5px;
+}
+
+.answerbutton{
+    margin-top: 20px;
+}
+
+.question_p,
+.answer_p{
+    margin-top: 70px;
+}
