@@ -22,6 +22,9 @@ echo "<input type=\"hidden\" name=\"name\" value=\"{$name}\">";
 <!--③ 問題のradioボタンを「foreach」を使って作成する-->
   <?php
   $port = [80, 22, 20,21];
+  $correct1 = 80;
+  echo "<input type=\"hidden\" name=\"correct1\" value=\"{$correct1}\">";
+
 	foreach( $port as $value ){
 		echo "<input type=\"radio\" name=\"port\" value=\"{$value}\">";
 
@@ -32,6 +35,9 @@ echo "<input type=\"hidden\" name=\"name\" value=\"{$name}\">";
 <!--③ 問題のradioボタンを「foreach」を使って作成する-->
 <?php
   $launguage = ["PHP", "Python", "Java","HTML"];
+  $correct2 = "HTML";
+  echo "<input type=\"hidden\" name=\"correct2\" value=\"{$correct2}\">";
+
   foreach( $launguage as $value ){
 		echo "<input type=\"radio\" name=\"launguage\" value=\"{$value}\">";
 
@@ -43,6 +49,9 @@ echo "<input type=\"hidden\" name=\"name\" value=\"{$name}\">";
 <!--③ 問題のradioボタンを「foreach」を使って作成する-->
 <?php
   $command = ["join", "select", "insert","update"];
+  $correct3 = "select";
+  echo "<input type=\"hidden\" name=\"correct3\" value=\"{$correct3}\">";
+
   foreach( $command as $value ){
 	echo "<input type=\"radio\" name=\"command\" value=\"{$value}\">";
 

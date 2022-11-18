@@ -18,7 +18,9 @@ echo $name;
 <!--作成した関数を呼び出して結果を表示-->
 <?php 
 $answer1 = $_POST["port"];
-if($answer1 == 80){
+$correct1 = $_POST['correct1'];
+
+if($answer1 == $correct1){
     echo "正解！";
 }else{
     echo "不正解・・・";
@@ -29,7 +31,9 @@ if($answer1 == 80){
 <!--作成した関数を呼び出して結果を表示-->
 <?php 
 $answer2 = $_POST["launguage"];
-if($answer2 == "HTML"){
+$correct2 = $_POST['correct2'];
+
+if($answer2 == $correct2){
     echo "正解！";
 }else{
     echo "不正解・・・";
@@ -41,7 +45,9 @@ if($answer2 == "HTML"){
 <!--作成した関数を呼び出して結果を表示-->
 <?php 
 $answer3 = $_POST["command"];
-if($answer3 == "select"){
+$correct3 = $_POST['correct3'];
+
+if($answer3 == "$correct3"){
     echo "正解！";
 }else{
     echo "不正解・・・";
