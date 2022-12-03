@@ -19,7 +19,7 @@ class getData{
      */
     public function getUserData(){
         $getusers_sql = "SELECT * FROM users limit 1";
-        $users_data = $this->pdo->query($getusers_sql)->fetch(PDO::FETCH_ASSOC);
+        $getData = $this->pdo->query($getusers_sql)->fetch(PDO::FETCH_ASSOC);
         return $getData;
     }
     
@@ -31,7 +31,7 @@ class getData{
      */
     public function getPostData(){
         $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
-        $post_data = $this->pdo->query($getposts_sql);
+        $post_data = $this->pdo->query($getposts_sql)->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);
         return $post_data;
     }
 }
