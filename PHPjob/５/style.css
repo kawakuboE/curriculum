@@ -1,0 +1,107 @@
+/* base */
+body{
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    ;
+    width: fit-content;
+    margin: 50px auto;
+}
+h1{
+    
+    font-weight: 450;
+    font-size: 1.5rem;
+    margin-right: 30px;
+}
+
+input{
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+}
+
+input[type="submit"]{
+    box-sizing: content-box;
+    background-color: #1e90ff;
+    color: white;
+    width: 150px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+}
+a:visited {
+    color: #fff;
+}
+
+button{
+    box-sizing: content-box;
+    background-color: #008b8b;
+    width: fit-content;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 0;
+}
+/* main */
+
+.mainpgbuttton{
+    display: flex;
+}
+
+
+.register{
+    background-color: #1e90ff;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.logout{
+    background-color: grey;
+}
+
+.delete{
+    background-color: #dc143c;
+}
+
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+td, th{
+    border: 1px solid #c0c0c0;
+    padding: 0 50px;
+    
+}
+
+tr{
+    height: 50px;
+}
+
+tr:nth-child(1){
+    background-color: #dcdcdc;
+}
+
+/* register */
+
+select{
+    box-sizing: content-box;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 30px;
+}
+
+/* login */
+.loginhead{
+    display: flex;
+    align-items: center;
+}
+
+
+.logoutms{
+    margin-bottom: 10px;
+}
