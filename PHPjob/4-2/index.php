@@ -68,8 +68,7 @@ $data = new getData();
                     <td><?php echo $row['comment']; ?></td>
                     <td><?php echo $row['created']; ?></td>
                     </tr>
-                    <?php } 
-                    var_dump($row);?>
+                    <?php } ?>
             </tbody>
         </table>
 
