@@ -50,25 +50,23 @@ $data = new getData();
                 </tr>
                <?php
                $postData = $data -> getPostData();
-                while ($row = $postData->fetch(PDO::FETCH_ASSOC)) { ?>
-                    <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['title']; ?></td>
-                    <td>
-                    <?php
-                            if($row['category_no'] == 1){
-                                echo "食事";
-                            }else if($row['category_no'] == 2){
-                                echo "旅行";
-                            }else{
-                                echo "その他";
-                            }
-                        ?>
-                    </td>
-                    <td><?php echo $row['comment']; ?></td>
-                    <td><?php echo $row['created']; ?></td>
-                    </tr>
-                    <?php } ?>
+               foreach ($postData as $row) {?>
+                  <tr>
+                    <td><?php echo $row["id"];?></td>
+                    <td><?php echo $row["title"];?></td>
+                    <td><?php 
+                        if($row['category_no'] == 1){
+                            echo "食事";
+                        }else if($row['category_no'] == 2){
+                            echo "旅行";
+                        }else{
+                            echo "その他";
+                        }
+                    ?></td>
+                    <td><?php echo $row["comment"];?></td>
+                    <td><?php echo $row["created"];?></td>
+                  </tr>
+                  <?php }?>
             </tbody>
         </table>
 
