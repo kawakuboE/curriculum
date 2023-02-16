@@ -1,0 +1,61 @@
+.wrap{
+    width: 400px;
+    position: relative;
+}
+
+.darkblue{
+    height: 100px;
+    background-color: #141f40;
+}
+
+.green{
+    width: 150px;
+    height: 250px;
+    background-color: #80bfa8;
+    position: absolute;
+    right: 0;
+}
+
+.blue{
+    width: 250px;
+    height: 100px;
+    background-color: #0093b7;
+    position: absolute;
+    top: 250px;
+    left: 0;
+}
+
+.yellow{
+    width: 100px;
+    height: 150px;
+    background-color: #dbd403;
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+.pinkorange{
+    width: 150px;
+    height: 100px;
+    background-color: #ff9e6b;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+}
+
+.brown{
+    width: 150px;
+    height: 50px;
+    background-color: #8c2727;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.orange{
+    width: 400px;
+    height: 100px;
+    background-color: #d98d30;
+    position: absolute;
+    top: 350px;
+}
