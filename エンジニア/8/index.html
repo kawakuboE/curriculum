@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        th, td {
+            padding : 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <select id="select_mode" onchange="changeLang()">
+        <option id="select">選択してください</option>
+        <option id="selected_jpn">日本語</option>
+        <option id="selected_en">English</option>
+        <option id="selected_all">全て表示</option>
+    </select>
+    <table>
+        <tr id="japan">
+            <th>日本</th>
+            <td>こんにちは</td>
+            <td>ありがとう</td>
+            <td>さようなら</td>
+        </tr>
+        <tr id="english">
+            <th>English</th>
+            <td>Hello</td>
+            <td>Thank you</td>
+            <td>Good Bye</td>
+        </tr>
+    </table>
+
+    <script>
+        //パターン１①onchangeで使用されている関数の中身を実装してください。
+        //このパターンはonchange="changeLang(this)のようにthisの引数がいる。
+        /* function changeLang(select){ //こちらの関数にもselectの引数が必要。
+            let i = select.selectedIndex;
+            let id = select.options[i].id;
+            let japan = document.getElementById("japan");
+            let english = document.getElementById("english");
+            console.log(japan);
+            console.log(english);
+
+            if(id == "selected_jpn"){
+                english.style.display ="none";
+                japan.style.display ="block";
+            }else if(id == "selected_en"){
+                english.style.display ="block";
+                japan.style.display ="none";
+            }else{
+                english.style.display ="block";
+                japan.style.display ="block";
+            };
+        } */
+
+        //パターン２：①onchangeで使用されている関数の中身を実装してください。
+        /* function changeLang(){
+            
+            //let id = document.getElementById('choose').value; ※IDを振ってもOK
+            let id = document.getElementsByTagName('select')[0].value;
+            let japan = document.getElementById("japan");
+            let english = document.getElementById("english");
+            console.log(japan);
+            console.log(english);
+            console.log(id);
+
+            if(id == "日本語"){
+                english.style.display ="none";
+                japan.style.display ="block";
+            }else if(id == "English"){
+                english.style.display ="block";
+                japan.style.display ="none";
+            }else{
+                english.style.display ="block";
+                japan.style.display ="block";
+            };
+        } */
+
+        //パターン3:visibilityを使ってみる。
+        function changeLang() {
+            let select = document.getElementById('select_mode');
+            let selected_mode = select.options[select.selectedIndex].value;
+            let id_jap = document.getElementById('japan');
+            let id_en = document.getElementById('english');
+
+            id_jap.style.visibility ='visible';
+            id_en.style.visibility ='visible';
+            
+            if(selected_mode == "日本語"){
+                id_jap.style.visibility ='visible';
+                id_en.style.visibility ='hidden';
+            }else if(selected_mode == "English"){
+                id_jap.style.visibility ='hidden';
+                id_en.style.visibility ='visible';
+            }else{
+                id_jap.style.visibility ='visible';
+                id_en.style.visibility ='visible';
+            };
+                }
+
+    </script>
+</body>
+</html>
