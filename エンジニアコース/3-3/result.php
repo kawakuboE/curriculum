@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8');
 $figure = $_POST['figure'];
 ?>
 <p><?php echo date("Y/m/d", time()); ?>の運勢は<br>
