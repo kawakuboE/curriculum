@@ -1,0 +1,63 @@
+body{
+    margin: 0 auto;
+    width: 1000px;
+}
+
+/* headeer */
+
+header{
+    display: flex;
+}
+
+.accountinfo{
+    width: 100%;
+}
+
+.accountinfo p{
+    text-align: right;
+    line-height: 60px;
+    margin: 0;
+}
+
+.logo{
+    background-color: #add8e6;
+    width: 200px;
+    height: 120px;
+}
+
+.welcom{
+    background-color: #87ceeb;
+    width: 100%;
+    height: 60px;
+}
+
+.logindate{
+    background-color: #00ffff;
+    width: 100%;
+    height: 60px;
+}
+
+/* section */
+table{
+    display: block;
+    margin: 10px auto;
+    width: fit-content;
+}
+
+tr:nth-child(1){
+    background-color: #87ceeb;
+    font-weight: bold;
+}
+
+tr{
+    background-color: #E0ffff;    
+}
+
+
+/* footer */
+
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: #00ced1;
+}
