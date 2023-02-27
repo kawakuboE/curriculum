@@ -43,26 +43,31 @@ function getName($list) {
     //$i = 0;
     echo "【Aクラスの名簿】" . '<br>';
 //配列の中の名前を出す。
- /*    foreach ($list as $key => $member) {
-        if ($i < count($list)) {
-            echo $key[0] . '<br>';
-        }
-        $i++;
-    }
-} */
-
 //修正１：foreachの中に条件をつける必要はないので、if文はいらない。$i++;でインクリする必要もない。$i = 0;も削除。
-//修正２：条件式の$listは配列の中に連想配列がある構造なので、array_keys関数で外側の配列のキーを取得。foreachで表示されるためには「as $key」を付け足した形にしなければならない。 
-foreach (array_keys($list) as $key) {
+//$memberはカリキュラムでは$valueで設定していたのと同じで、連想配列の値を設定している部分。
+//色が少し暗くなっているのは、$memberをforeachの中で使ってないから。ただecho $member.'<br>';で出力するとエラーになる。$list自体が、二次元配列（配列の中に配列がある構造）なので、echo $memberでは呼び出せない。echo $member['ID'].'<br>';などすれば呼び出せる。
+foreach ($list as $key => $member) {
+    //if ($i < count($list)) {
+        //echo $key[0] . '<br>';
+        echo $key . '<br>';
+        //echo $member['ID'].'<br>';
+   // }
+   // $i++;
+}
+}
+
+//foreachのもうひとパターン：条件式の$listは配列の中に連想配列がある構造なので、array_keys関数で外側の配列のキーを取得。foreachで表示されるためには「as $key」を付け足した形にしなければならない。 
+/* foreach (array_keys($list) as $key) {
     echo $key.'<br>';
 }
-}
+} */
 
 // クラスの一覧を表示
 getName($list);
 echo '<br>';
 // 大阪出身の方を表示
-//修正３：下記に引数「$list」を入れる。「☆クラスで大阪出身の子は小林 さんです。」を表示させるための関数を呼び出している。
+//修正2：下記に引数「$list」を入れる。「☆クラスで大阪出身の子は小林 さんです。」を表示させるための関数を呼び出している。
+//57行目のgetPeople()には引数が足りないというエラーが出ていたと思う。Uncaught ArgumentCountError: Too few arguments to function getPeople(), 0 passed in /Applications/MAMP/htdocs/bugTest/test1/index.php on line 57」
 getPeople($list);
 
 // 大阪出身の方を抽出
