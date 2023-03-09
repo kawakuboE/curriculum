@@ -1,0 +1,123 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+// 以下を追記することでNews Modelが扱えるようになる
+use App\News;
+//Historyモデルの使用を宣言
+use App\History;
+//Carbonという日付操作ライブラリを使う
+use Carbon\Carbon;
+
+class NewsController extends Controller
+{
+    //admin/news/createのページを表示
+    public function add()
+  {
+      return view('admin.news.create');
+  }
+
+  //新規記事を作成するaction
+  public function create(Request $request)
+  {
+    // Varidationを行う
+    $this->validate($request, News::$rules);
+
+    $news = new News;
+    $form = $request->all();
+
+    // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
+    if (isset($form['image'])) {
+      $path = $request->file('image')->store('public/image');
+      $news->image_path = basename($path);
+    } else {
+        $news->image_path = null;
+    }
+
+    // フォームから送信されてきた_tokenを削除する
+    unset($form['_token']);
+    // フォームから送信されてきたimageを削除する
+    unset($form['image']);
+
+    // データベースに保存する
+    $news->fill($form);
+    $news->save();
+
+      // admin/news/createにリダイレクトする
+      return redirect('admin/news/create');
+  }  
+
+  //記事を検索するaction
+  public function index(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = News::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = News::all();
+      }
+      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
+
+  //記事の編集画面に入るaction
+  public function edit(Request $request)
+  {
+      // News Modelからデータを取得する
+      $news = News::find($request->id);
+      if (empty($news)) {
+        abort(404);    
+      }
+      return view('admin.news.edit', ['news_form' => $news]);
+  }
+
+  //記事編集画面に入った後のアップデートをするaction
+  public function update(Request $request)
+  {
+      // Validationをかける
+      $this->validate($request, News::$rules);
+      // News Modelからデータを取得する
+      $news = News::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $news_form = $request->all();
+      if (isset($news_form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $news->image_path = basename($path);
+        unset($news_form['image']);
+      } elseif (0 == strcmp($request->remove, 'true')) {
+        $news->image_path = null;
+      }
+      unset($news_form['_token']);
+      unset($news_form['remove']);
+
+      // 該当するデータを上書きして保存する
+      $news->fill($news_form)->save();
+
+      // History Modelにも編集履歴を追加する
+      $history = new History;
+      //historyテーブルのnews_idとnewsテーブルのidの紐付け
+      $history->news_id = $news->id; 
+      //Carbonを使って取得した現在時刻を、Historyモデルのedited_atとして記録
+      $history->edited_at = Carbon::now();
+      $history->save();
+
+
+      return redirect('admin/news');
+  }
+ 
+  //記事を削除するaction
+  public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $news = News::find($request->id);
+      // 削除する
+      $news->delete(); //データをセーブするときは$news->save();で、削除の場合はdelete()メソッド
+      return redirect('admin/news/');
+  }  
+
+
+}
